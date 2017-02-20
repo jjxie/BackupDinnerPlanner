@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Detail of the Dish</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+</head>
+
+<body style="background-image: url('bg.jpg'); background-size: cover;">
+
+	<!-- heading panel -->
+	<div class="container-fluid ">
+		<div id="headingPanel"  class="col-md-12" style="background-color: rgba(48,48,48,0.9);">
+			<div class="col-md-3 panel-body text-center" ><h1 style="color: white;">HOMELETTE</h1></div>
+			<div class="col-md-9 panel-body"><br></br><p><em style="color: white;">From the best chefs in the world directly into your kitchen</em></p></div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid panel-group">
+
+		<!-- list of selected menu on the left -->
+		<div id="menuListView" class="col-md-3 panel-body" style="background-color: rgba(247,232,218,0.7);">
+			
+			<h4>My Dinner</h4>
+
+			<div class="panel-body">
+				<div style="font-weight: bold; text-align: center;">Number of Guest(s): </div>
+
+				<div class="input-group" style="width: 160px; margin: auto;">
+					<span class="input-group-btn">
+						<button id="minusGuest" type="button" class="btn btn-warning btn-number" >
+							<span class="glyphicon glyphicon-minus"></span>
+						</button>
+					</span>
+					<input id="guestNumberInput" type="text" class="form-control input-number" min="0" max="100" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					<span class="input-group-btn">
+						<button id="plusGuest" type="button" class="btn btn-warning btn-number">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</span>
+				</div>
+
+			</div>
+			
+			<div id="selectedDish" class="panel-header">
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="col-md-5">Dishes Name</th>
+							<th class="col-md-2">Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Where the menu list locates. -->
+					</tbody>
+				</table>
+			</div>
+			
+			<div id="totalCost" class="panel-header">
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="col-md-8"></th>
+							<th class="col-md-4"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align: right;">SEK</td>
+							<td id="totalMenuPrice"> 
+								<!-- Where the total price locates. -->
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="container-fluid">
+				<!-- Button here to confirm the dinner menu. -->
+				<button id="confirmDinner" type="button" class="btn btn-warning btn-md col-md-12">Confirm Dinner</button>
+			</div>
+		</div>		
+
+		<!--detailed info of a dish on the right-->
+		<div id="dishDetailView" class="col-md-9 panel-group panel-body" style="background-color: rgba(222,208,196,0.8);">
+
+			<!--thumbnail-->
+			<div class="col-md-6 panel-group">	
+				<div class="col-md-6 panel-header">
+					<h4 id="dishName">
+						<!-- Where the dish name locates.  -->
+					</h4>
+				</div>
+				<div id="dishImage" class="col-md-12 panel-body">
+					<!-- Where the dish image locates.  -->
+				</div>
+				<div id="dishDescription" class="col-md-12 panel-body">
+					<!-- Where the dish description locates.  -->
+				</div>
+				<div class="col-xs-12 panel-body">
+					<!-- Button here to go back to dish searching page. -->
+					<button id="backToMenu" type="button" class="btn btn-warning">Back to Select Dish</button>
+				</div>
+			</div>
+
+			<!--Ingredient facts-->
+			<div class="col-md-6 panel-group" style="background-color: rgba(252,159,77,0.5);">	
+				<div class="col-md-12 panel-header">
+					<h4>Ingredients for 
+						<span id="guestNumberOutput">
+							<!-- Where the number of guests locates.  -->
+						</span>
+						people
+					</h4>
+				</div>
+				<div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="col-md-2"></th>
+								<th class="col-md-6"></th>
+								<th class="col-md-2"></th>
+								<th class="col-md-2"></th>
+							</tr>
+						</thead>
+						<tbody id="dishIngredients">
+							<!-- Where the dish ingredients locate.  -->
+						</tbody>
+					</table>
+				</div>
+
+				<div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="col-md-8"></th>
+								<th class="col-md-2"></th>
+								<th class="col-md-2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<!-- Button here to add the dish into the menu. -->
+									<button id="addDish" type="button" class="btn btn-warning">Add dish</button>
+									</td>
+								<td>SEK</td>
+								<td id="dishPrice">
+									<!-- Where the dish price locates.  -->
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+
+			<!-- preparation -->
+			<div class="col-md-12 panel-body ">
+				<div class="col-md-12 panel-header"><h4>PREPARATION</h4></div>
+				<div id="dishPreparation" class="panel-body"></div>
+			</div>
+		</div> 
+	</div>
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<!-- Model -->
+	<script src="js/model/dinnerModel.js"></script>
+	<!-- Views -->
+	<script src="js/view/homeView.js"></script>
+	<script src="js/view/menuListView.js"></script>
+	<script src="js/view/menuThumbnailView.js"></script>
+	<script src="js/view/dishDetailView.js"></script>
+	<script src="js/view/dinnerFactsBannerView.js"></script>
+	<script src="js/view/menuSummaryView.js"></script>
+	<script src="js/view/preparationView.js"></script>
+	<!-- Controllers -->
+	<script src="js/view/menuListController.js"></script>
+	<script src="js/view/menuThumbnailController.js"></script>
+	<!-- Browser-sync scripts -->
+  	<script id="__bs_script__">//<![CDATA[
+  		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0'><\/script>".replace("HOST", location.hostname));
+  		//]]></script>
+  	</body>
+  	</html>
